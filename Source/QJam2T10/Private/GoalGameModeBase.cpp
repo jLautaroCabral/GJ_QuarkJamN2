@@ -125,7 +125,4 @@ void AGoalGameModeBase::TryToAddAnotherEntryInGlobalLeaderboard(FLeaderboardUser
 void AGoalGameModeBase::StartPlay()
 {
 	Super::StartPlay();
-	FLeaderboardUserInfoItem sample;
-	TryToUpdateLeaderboardEntries();
-	TryToAddAnotherEntryInGlobalLeaderboard(sample);
 }
