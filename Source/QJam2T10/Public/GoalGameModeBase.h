@@ -15,7 +15,7 @@ struct FLeaderboardUserInfoItem
 	GENERATED_USTRUCT_BODY()
 
 public:
-	FLeaderboardUserInfoItem() = default;
+	FLeaderboardUserInfoItem() : Username(TEXT("DefaultUser")), Score(0) {}
     //~ The following member variable will be accessible by Blueprint Graphs:
     // This is the tooltip for our test variable.
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Test Variables")
@@ -38,8 +38,8 @@ public:
 
 	UPROPERTY(BlueprintCallable, BlueprintAssignable)
 	FOnReceiveResponse OnResponseReceivedGetHighScoresDelegate;
-	//UPROPERTY(BlueprintCallable, BlueprintAssignable)
-	//FOnReceiveResponse OnResponseReceivedPostHighScore;
+	UPROPERTY(BlueprintCallable, BlueprintAssignable)
+	FOnReceiveResponse OnResponseReceivedPostHighScoreDelegate;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<FLeaderboardUserInfoItem> LeaderboardEntries;
@@ -51,11 +51,11 @@ public:
 
 	// Dummy so far
 	UFUNCTION(BlueprintImplementableEvent)
-		void ResponseReceivedGetHighScores();
+	void ResponseReceivedGetHighScores();
 
 	//// Dummy so far
-	//UFUNCTION(BlueprintImplementableEvent)
-		//void ResponseReceivedPostHighScore();
+	UFUNCTION(BlueprintImplementableEvent)
+	void ResponseReceivedPostHighScore();
 
 private:
 	void OnResponseReceivedGetHighScores(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bConnectedSuccesfully);

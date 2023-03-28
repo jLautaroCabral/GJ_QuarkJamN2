@@ -54,9 +54,9 @@ void AGoalGameModeBase::OnResponseReceivedGetHighScores(FHttpRequestPtr Request,
 		UE_LOG(LogTemp, Error, TEXT("Failed to deserialize Leaderboard response"));
 	}
 
-	if (false)//OnResponseReceivedGetHighScores.IsBound())
+	if (OnResponseReceivedPostHighScoreDelegate.IsBound())
 	{
-		//OnResponseReceivedGetHighScores.Broadcast(bConnectedSuccesfully);
+		OnResponseReceivedPostHighScoreDelegate.Broadcast(bConnectedSuccesfully);
 	}
 }
 
