@@ -15,6 +15,12 @@ class QJAM2T10_API AMyFirstActor : public AActor
 	UStaticMeshComponent* VisualMesh;
 	
 public:	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FloatingActor")
+	float FloatSpeed = 20.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FloatingActor")
+	float RotationSpeed = 20.0f;
+
 	// Sets default values for this actor's properties
 	AMyFirstActor();
 
